@@ -1,4 +1,4 @@
-package com.lwy.paginationlib;
+package com.sxj.paginationlib;
 
 import org.junit.Test;
 

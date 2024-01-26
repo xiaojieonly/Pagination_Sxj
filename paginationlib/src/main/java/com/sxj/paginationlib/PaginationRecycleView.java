@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.lwy.paginationlib.R;
+import com.sxj.paginationlib.R;
 
 public class PaginationRecycleView extends LinearLayout implements PaginationIndicator.OnChangedListener {
 

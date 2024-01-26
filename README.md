@@ -64,7 +64,7 @@ dependencies {
 
    ```xml
    ...
-   <com.lwy.paginationlib.PaginationRecycleView
+   <com.sxj.paginationlib.PaginationRecycleView
            android:id="@+id/pagination_rcv"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
@@ -160,7 +160,7 @@ dependencies {
 
 ```xml
 ...
-<com.lwy.paginationlib.PaginationIndicator
+<com.sxj.paginationlib.PaginationIndicator
     android:id="@+id/indicator"
     android:layout_width="match_parent"
     app:number_tip_count="5"

@@ -18,7 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.lwy.paginationlib.R;
+import com.sxj.paginationlib.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
