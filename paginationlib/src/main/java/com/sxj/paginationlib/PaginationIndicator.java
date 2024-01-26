@@ -176,11 +176,8 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
     }
 
     private void initSpinner() {
-        if (mPerPageCountAdapter == null) {
-            mPerPageCountAdapter = new CustomArrayAdapter(getContext());
-            mPerPageCountSpinner.setOnItemSelectedListener(this);
-        }
-        mPerPageCountAdapter.clear();
+        mPerPageCountAdapter = new CustomArrayAdapter(getContext());
+        mPerPageCountSpinner.setOnItemSelectedListener(this);
         for (int perPageCountChoice : mPerPageCountChoices) {
             mPerPageCountAdapter.add(perPageCountChoice + pageAndItem);
         }
