@@ -205,9 +205,7 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
     }
 
     private void initIndicator() {
-        if (mCurrentPagePos == -1) {
-            mCurrentPagePos = 1;
-        }
+        mCurrentPagePos = 1;
         mLastPagePos = 0;
         if (mTotalCount == 0) {
             mTotalPageCount = 0;
