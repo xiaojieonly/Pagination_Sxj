@@ -5,7 +5,7 @@
     android:viewportWidth="24"
     android:viewportHeight="24">
     <path
-        android:fillColor="?attr/selected_color"
+        android:fillColor="@color/indicator_rect_selected"
         android:pathData="M7.41,8.59L12,13.17l4.59,-4.58L18,10l-6,6 -6,-6 1.41,-1.41z"
         tools:ignore="VectorRaster" />
 </vector>
