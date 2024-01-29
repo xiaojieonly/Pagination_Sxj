@@ -11,7 +11,7 @@
     </item>
 
     <item
-        android:left="56dp"
+        android:left="26dp"
         android:right="6dp">
         <vector
             android:id="@+id/layer2"
