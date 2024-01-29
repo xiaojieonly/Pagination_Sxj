@@ -2,9 +2,13 @@ package com.sxj.paginationlib;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.StateListDrawable;
+import android.graphics.drawable.VectorDrawable;
+import android.support.graphics.drawable.VectorDrawableCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -133,9 +137,9 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
             mSpinnerDrawable = (LayerDrawable) getResources().getDrawable(R.drawable.bg_spinner);
         }
         GradientDrawable drawable = (GradientDrawable) mSpinnerDrawable.findDrawableByLayerId(R.id.layer1);
-//        GradientDrawable drawableArrow = (GradientDrawable) mSpinnerDrawable.findDrawableByLayerId(R.id.layer2);
         drawable.setStroke(2, sColor_selected);
-//        drawableArrow.setColor(sColor_selected);
+        VectorDrawableCompat drawableArrow = (VectorDrawableCompat) mSpinnerDrawable.findDrawableByLayerId(R.id.layer2);
+        drawableArrow.setTint(ContextCompat.getColor(getContext(),sColor_selected));
 
         if (mDrawableSelected == null) {
             mDrawableSelected = (GradientDrawable) getResources().getDrawable(R.drawable.shape_round_rect_selected);
