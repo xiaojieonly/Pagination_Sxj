@@ -133,9 +133,9 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
             mSpinnerDrawable = (LayerDrawable) getResources().getDrawable(R.drawable.bg_spinner);
         }
         GradientDrawable drawable = (GradientDrawable) mSpinnerDrawable.findDrawableByLayerId(R.id.layer1);
-        GradientDrawable drawableArrow = (GradientDrawable) mSpinnerDrawable.findDrawableByLayerId(R.id.layer2);
+//        GradientDrawable drawableArrow = (GradientDrawable) mSpinnerDrawable.findDrawableByLayerId(R.id.layer2);
         drawable.setStroke(2, sColor_selected);
-        drawableArrow.setColor(sColor_selected);
+//        drawableArrow.setColor(sColor_selected);
 
         if (mDrawableSelected == null) {
             mDrawableSelected = (GradientDrawable) getResources().getDrawable(R.drawable.shape_round_rect_selected);
