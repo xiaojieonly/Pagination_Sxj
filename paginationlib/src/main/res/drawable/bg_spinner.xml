@@ -11,10 +11,10 @@
     </item>
 
     <item
-        android:left="26dp"
+        android:id="@+id/layer2"
+        android:left="56dp"
         android:right="6dp">
-        <vector
-            android:id="@+id/layer2"
+        <bitmap
             android:gravity="end"
             android:src="@drawable/arrow_down"/>
     </item>
