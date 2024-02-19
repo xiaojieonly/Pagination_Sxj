@@ -412,8 +412,13 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
     }
 
     public void initPaginationIndicator(int pageCount,int[] perPageCountChoices,int dataSize,int currentPagePos) {
-        mPerPageCountChoices = perPageCountChoices;
+        this.mPerPageCountChoices = perPageCountChoices;
+
+
         mTotalCount = dataSize;
+        String text = count + mTotalCount;
+        mTotalTv.setText(text);
+
         mCurrentPagePos = currentPagePos;
         int index = -1;
         for (int i = 0; i < mPerPageCountChoices.length; i++) {
@@ -422,11 +427,10 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
                 break;
             }
         }
-        if (index==-1){
-            return;
+        if (index!=-1){
+            initSpinner(index);
         }
 
-        mPerPageCountSpinner.setSelection(index);
         mPerPageCount = pageCount;
         if (this.mListener != null) {
             mListener.onPerPageCountChanged(mPerPageCount);
