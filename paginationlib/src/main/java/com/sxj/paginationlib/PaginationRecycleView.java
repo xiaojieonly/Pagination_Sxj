@@ -90,7 +90,7 @@ public class PaginationRecycleView extends LinearLayout implements PaginationInd
      * @param perPageCountChoices
      */
     public void setPerPageCountChoices(int[] perPageCountChoices) {
-        mPaginationIndicatorView.setPerPageCountChoices(perPageCountChoices);
+        mPaginationIndicatorView.setPerPageCountChoices(perPageCountChoices,0);
     }
 
     /**

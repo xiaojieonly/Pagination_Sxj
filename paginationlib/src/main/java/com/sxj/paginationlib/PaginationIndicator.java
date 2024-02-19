@@ -72,9 +72,9 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
      *
      * @param perPageCountChoices
      */
-    public void setPerPageCountChoices(int[] perPageCountChoices) {
+    public void setPerPageCountChoices(int[] perPageCountChoices,int defSelection) {
         this.mPerPageCountChoices = perPageCountChoices;
-        initSpinner();
+        initSpinner(defSelection);
     }
 
     public void setListener(OnChangedListener mListener) {
@@ -117,7 +117,7 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
 
         mLastBtn.setOnClickListener(this);
         mNextBtn.setOnClickListener(this);
-        initSpinner();
+        initSpinner(0);
 
         LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         addView(mControllerView, layoutParams);
@@ -175,7 +175,7 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
 
     }
 
-    private void initSpinner() {
+    private void initSpinner(int defSelection) {
         mPerPageCountAdapter = new CustomArrayAdapter(getContext());
         mPerPageCountSpinner.setOnItemSelectedListener(this);
         for (int perPageCountChoice : mPerPageCountChoices) {
