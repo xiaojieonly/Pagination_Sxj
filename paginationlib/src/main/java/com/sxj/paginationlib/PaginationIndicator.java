@@ -204,8 +204,14 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
         updateNumberLlt();
     }
 
-    private void initIndicator() {
-        mCurrentPagePos = 1;
+    private void initIndicator(){
+        initIndicator(true);
+    }
+
+    private void initIndicator(boolean resetPagePos) {
+        if (resetPagePos){
+            mCurrentPagePos = 1;
+        }
         mLastPagePos = 0;
         if (mTotalCount == 0) {
             mTotalPageCount = 0;
@@ -405,7 +411,10 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
         notifyChange();
     }
 
-    public void setItemSelected(int pageCount) {
+    public void initPaginationIndicator(int pageCount,int[] perPageCountChoices,int dataSize,int currentPagePos) {
+        mPerPageCountChoices = perPageCountChoices;
+        mTotalCount = dataSize;
+        mCurrentPagePos = currentPagePos;
         int index = -1;
         for (int i = 0; i < mPerPageCountChoices.length; i++) {
             if (mPerPageCountChoices[i] == pageCount) {
@@ -416,12 +425,14 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
         if (index==-1){
             return;
         }
+
         mPerPageCountSpinner.setSelection(index);
         mPerPageCount = pageCount;
         if (this.mListener != null) {
             mListener.onPerPageCountChanged(mPerPageCount);
         }
-        notifyChange();
+        initIndicator(false);
+        updateNumberLlt();
     }
 
     @Override
