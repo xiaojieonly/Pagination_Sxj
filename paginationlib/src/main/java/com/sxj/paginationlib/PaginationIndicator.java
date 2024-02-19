@@ -139,7 +139,7 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
         GradientDrawable drawable = (GradientDrawable) mSpinnerDrawable.findDrawableByLayerId(R.id.layer1);
         drawable.setStroke(2, sColor_selected);
         VectorDrawableCompat drawableArrow = (VectorDrawableCompat) mSpinnerDrawable.findDrawableByLayerId(R.id.layer2);
-        drawableArrow.setTint(ContextCompat.getColor(getContext(),sColor_selected));
+        drawableArrow.setTint(ContextCompat.getColor(getContext(), sColor_selected));
 
         if (mDrawableSelected == null) {
             mDrawableSelected = (GradientDrawable) getResources().getDrawable(R.drawable.shape_round_rect_selected);
@@ -405,6 +405,25 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         mPerPageCount = mPerPageCountChoices[position];
+        if (this.mListener != null) {
+            mListener.onPerPageCountChanged(mPerPageCount);
+        }
+        notifyChange();
+    }
+
+    public void setItemSelected(int pageCount) {
+        int index = -1;
+        for (int i = 0; i < mPerPageCountChoices.length; i++) {
+            if (mPerPageCountChoices[i] == pageCount) {
+                index = i;
+                break;
+            }
+        }
+        if (index==-1){
+            return;
+        }
+        mPerPageCountSpinner.setSelection(index);
+        mPerPageCount = pageCount;
         if (this.mListener != null) {
             mListener.onPerPageCountChanged(mPerPageCount);
         }
