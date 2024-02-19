@@ -182,7 +182,7 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
             mPerPageCountAdapter.add(perPageCountChoice + pageAndItem);
         }
         mPerPageCountSpinner.setAdapter(mPerPageCountAdapter);
-        mPerPageCountSpinner.setSelection(0);
+        mPerPageCountSpinner.setSelection(defSelection);
         mPerPageCountAdapter.notifyDataSetChanged();
     }
 
