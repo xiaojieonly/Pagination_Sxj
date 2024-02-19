@@ -57,6 +57,8 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
     private String count;
     private String pageAndItem;
 
+    private boolean onDataInit;
+
     /**
      * 设置分页控件中间的数字显示个数
      *
@@ -72,7 +74,7 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
      *
      * @param perPageCountChoices
      */
-    public void setPerPageCountChoices(int[] perPageCountChoices,int defSelection) {
+    public void setPerPageCountChoices(int[] perPageCountChoices, int defSelection) {
         this.mPerPageCountChoices = perPageCountChoices;
         initSpinner(defSelection);
     }
@@ -204,12 +206,12 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
         updateNumberLlt();
     }
 
-    private void initIndicator(){
+    private void initIndicator() {
         initIndicator(true);
     }
 
     private void initIndicator(boolean resetPagePos) {
-        if (resetPagePos){
+        if (resetPagePos) {
             mCurrentPagePos = 1;
         }
         mLastPagePos = 0;
@@ -404,6 +406,10 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
      */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if (onDataInit && mPerPageCount != mPerPageCountChoices[position]) {
+            onDataInit = false;
+            return;
+        }
         mPerPageCount = mPerPageCountChoices[position];
         if (this.mListener != null) {
             mListener.onPerPageCountChanged(mPerPageCount);
@@ -411,7 +417,7 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
         notifyChange();
     }
 
-    public void initPaginationIndicator(int pageCount,int[] perPageCountChoices,int dataSize,int currentPagePos) {
+    public void initPaginationIndicator(int pageCount, int[] perPageCountChoices, int dataSize, int currentPagePos) {
         this.mPerPageCountChoices = perPageCountChoices;
 
 
@@ -420,18 +426,18 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
         mTotalTv.setText(text);
 
         mCurrentPagePos = currentPagePos;
+        mPerPageCount = pageCount;
         int index = -1;
         for (int i = 0; i < mPerPageCountChoices.length; i++) {
-            if (mPerPageCountChoices[i] == pageCount) {
+            if (mPerPageCountChoices[i] == mPerPageCount) {
                 index = i;
                 break;
             }
         }
-        if (index!=-1){
+        if (index != -1) {
             initSpinner(index);
         }
 
-        mPerPageCount = pageCount;
         if (this.mListener != null) {
             mListener.onPerPageCountChanged(mPerPageCount);
         }
