@@ -405,6 +405,25 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
         notifyChange();
     }
 
+    public void setItemSelected(int pageCount) {
+        int index = -1;
+        for (int i = 0; i < mPerPageCountChoices.length; i++) {
+            if (mPerPageCountChoices[i] == pageCount) {
+                index = i;
+                break;
+            }
+        }
+        if (index==-1){
+            return;
+        }
+        mPerPageCountSpinner.setSelection(index);
+        mPerPageCount = pageCount;
+        if (this.mListener != null) {
+            mListener.onPerPageCountChanged(mPerPageCount);
+        }
+        notifyChange();
+    }
+
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
