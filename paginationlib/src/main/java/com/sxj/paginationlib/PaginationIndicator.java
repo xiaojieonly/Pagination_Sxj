@@ -57,8 +57,6 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
     private String count;
     private String pageAndItem;
 
-    private boolean onDataInit;
-
     /**
      * 设置分页控件中间的数字显示个数
      *
@@ -406,8 +404,7 @@ public class PaginationIndicator extends FrameLayout implements View.OnClickList
      */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        if (onDataInit && mPerPageCount != mPerPageCountChoices[position]) {
-            onDataInit = false;
+        if (mPerPageCount == mPerPageCountChoices[position]) {
             return;
         }
         mPerPageCount = mPerPageCountChoices[position];
